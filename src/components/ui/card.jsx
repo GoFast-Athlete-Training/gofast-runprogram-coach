@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { cn } from '../../lib/utils'
+import * as React from 'react';
+import { cn } from '../../lib/utils.js';
 
 function Card({ className, ...props }) {
   return <div className={cn('rounded-lg border bg-white text-black shadow-sm', className)} {...props} />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
-import { Button } from './ui/button';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table.jsx';
+import { Button } from './ui/button.jsx';
 import { CheckCircle, XCircle } from 'lucide-react';
 
 const AttendanceTable = ({ athletes, onAttendanceChange }) => {

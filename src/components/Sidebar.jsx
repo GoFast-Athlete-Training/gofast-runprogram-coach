@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Button } from './ui/button';
+import { Button } from './ui/button.jsx';
 import { LayoutDashboard, Users, Activity, FileText, Crown } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { cn } from '../lib/utils.js';
 
 const Sidebar = ({ isHeadCoach }) => {
   const navigate = useNavigate();

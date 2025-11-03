@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Button } from './ui/button.jsx';
+import { Input } from './ui/input.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card.jsx';
 import { Send } from 'lucide-react';
 
 const BroadcastForm = ({ onSend }) => {

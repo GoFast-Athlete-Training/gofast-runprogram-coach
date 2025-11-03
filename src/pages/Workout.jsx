@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import Header from '../components/Header.jsx';
+import Sidebar from '../components/Sidebar.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.jsx';
 import { Clock, MapPin, Calendar } from 'lucide-react';
-import { useHydrateCoach } from '../hooks/useHydrateCoach';
+import { useHydrateCoach } from '../hooks/useHydrateCoach.js';
 
 const Workout = () => {
   const navigate = useNavigate();

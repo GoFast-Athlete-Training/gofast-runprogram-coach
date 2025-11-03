@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card.jsx';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 
 const LessonCard = ({ workout }) => {

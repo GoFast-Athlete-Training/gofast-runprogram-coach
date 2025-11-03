@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 
 // Import pages
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Roster from './pages/Roster';
-import Workout from './pages/Workout';
-import Report from './pages/Report';
-import HeadCoach from './pages/HeadCoach';
+import Login from './pages/Login.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import Roster from './pages/Roster.jsx';
+import Workout from './pages/Workout.jsx';
+import Report from './pages/Report.jsx';
+import HeadCoach from './pages/HeadCoach.jsx';
 
 function App() {
   return (

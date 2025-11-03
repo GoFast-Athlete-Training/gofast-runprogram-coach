@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { LayoutDashboard, Users, Activity, FileText, Crown } from 'lucide-react';

@@ -7,23 +7,22 @@ import { User } from 'lucide-react';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('coach@example.com');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Demo: Simple email-based auth
-    // In production, this would call the backend API
+    // Demo: Just simulate loading and go to dashboard - no real auth
     await new Promise(resolve => setTimeout(resolve, 500));
 
-    // Demo: Store coach info
-    const isHeadCoach = email.includes('headcoach');
+    // Store mock coach data for demo (backend will know site automatically)
     localStorage.setItem('bgr_coach_auth', JSON.stringify({
-      email,
-      role: isHeadCoach ? 'headcoach' : 'coach',
-      siteId: isHeadCoach ? null : '1' // Head coach sees all sites
+      email: email,
+      role: 'coach',
+      siteId: '1'
     }));
 
     setLoading(false);
@@ -54,12 +53,22 @@ const Login = () => {
                 placeholder="coach@example.com"
               />
             </div>
+            <div>
+              <label className="block text-sm font-medium mb-2">Password</label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="coaches"
+              />
+            </div>
             <Button type="submit" className="w-full" size="lg" disabled={loading}>
               {loading ? 'Signing in...' : 'Sign In'}
             </Button>
           </form>
           <p className="text-xs text-gray-500 mt-4 text-center">
-            Demo: Use any email. Add "headcoach" in email for Head Coach access.
+            Demo: Enter any credentials to continue
           </p>
         </CardContent>
       </Card>

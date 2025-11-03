@@ -88,18 +88,13 @@ export const useHydrateCoach = () => {
     const hydrate = async () => {
       setLoading(true);
 
-      // Get coach auth from localStorage
+      // Demo: Just use mock data - no real API calls
+      // Check localStorage for cached role (for headcoach demo)
       const auth = localStorage.getItem('bgr_coach_auth');
-      if (!auth) {
-        setLoading(false);
-        return;
-      }
-
-      const authData = JSON.parse(auth);
-      const isHeadCoach = authData.role === 'headcoach';
+      const isHeadCoach = auth ? JSON.parse(auth).role === 'headcoach' : false;
 
       // Check localStorage cache first
-      const cachedData = localStorage.getItem(`bgr_coach_${authData.email}_data`);
+      const cachedData = localStorage.getItem('bgr_coach_data');
       if (cachedData) {
         const parsed = JSON.parse(cachedData);
         setCoachData(parsed.coachData);
@@ -116,11 +111,7 @@ export const useHydrateCoach = () => {
       // Simulate API delay
       await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Mock API response
-      // TODO: Replace with real API call
-      // const response = await fetch(`${import.meta.env.VITE_API_BASE}/bgr/coach/${coachId}/hydrate`);
-      // const data = await response.json();
-
+      // Demo: Mock data only - no real API calls
       const data = {
         coachData: isHeadCoach ? mockHeadCoachData : mockCoachData,
         currentWorkout: mockCurrentWorkout,
@@ -138,7 +129,7 @@ export const useHydrateCoach = () => {
       }
 
       // Cache in localStorage
-      localStorage.setItem(`bgr_coach_${authData.email}_data`, JSON.stringify(data));
+      localStorage.setItem('bgr_coach_data', JSON.stringify(data));
 
       setLoading(false);
     };

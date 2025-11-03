@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header.jsx';
 import Sidebar from '../components/Sidebar.jsx';
@@ -10,23 +10,13 @@ import { useHydrateCoach } from '../hooks/useHydrateCoach.js';
 const Dashboard = () => {
   const navigate = useNavigate();
   const { coachData, currentWorkout, roster, stats, loading } = useHydrateCoach();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const auth = localStorage.getItem('bgr_coach_auth');
-    if (!auth) {
-      navigate('/');
-      return;
-    }
-    setIsAuthenticated(true);
-  }, [navigate]);
 
   const handleLogout = () => {
     localStorage.removeItem('bgr_coach_auth');
     navigate('/');
   };
 
-  if (!isAuthenticated || loading) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <p>Loading...</p>

@@ -4,7 +4,7 @@ import Header from '../components/Header.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import LessonCard from '../components/LessonCard.jsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.jsx';
-import { Users, Activity, FileText } from 'lucide-react';
+import { Users, Activity, FileText, MessageSquare } from 'lucide-react';
 import { useHydrateCoach } from '../hooks/useHydrateCoach.js';
 
 const Dashboard = () => {
@@ -47,6 +47,12 @@ const Dashboard = () => {
             <LessonCard workout={currentWorkout} />
           </div>
 
+          {currentWorkout && (
+            <div className="mb-6 bg-orange-500 text-white py-3 px-6 rounded-lg text-center">
+              <h2 className="text-2xl font-bold">{currentWorkout.school || 'Your Site'}</h2>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/roster')}>
               <CardHeader>
@@ -66,13 +72,13 @@ const Dashboard = () => {
                 <CardDescription>View this week's lesson</CardDescription>
               </CardHeader>
             </Card>
-            <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/report')}>
+            <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/feedback')}>
               <CardHeader>
                 <div className="w-12 h-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center mb-4">
-                  <FileText className="w-6 h-6" />
+                  <MessageSquare className="w-6 h-6" />
                 </div>
-                <CardTitle>Feedback Reports</CardTitle>
-                <CardDescription>{stats?.reportsSubmitted || 0} submitted this week</CardDescription>
+                <CardTitle>Give Feedback</CardTitle>
+                <CardDescription>Provide feedback to athletes</CardDescription>
               </CardHeader>
             </Card>
           </div>

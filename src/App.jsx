@@ -8,7 +8,7 @@ import Login from './pages/Login.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Roster from './pages/Roster.jsx';
 import Workout from './pages/Workout.jsx';
-import Report from './pages/Report.jsx';
+import Attendance from './pages/Attendance.jsx';
 import Feedback from './pages/Feedback.jsx';
 import HeadCoach from './pages/HeadCoach.jsx';
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/roster" element={<Roster />} />
         <Route path="/workout" element={<Workout />} />
-        <Route path="/report" element={<Report />} />
+        <Route path="/attendance" element={<Attendance />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/headcoach" element={<HeadCoach />} />
       </Routes>

@@ -105,6 +105,16 @@ const Feedback = () => {
     const feedback = feedbackData[selectedAthlete] || {};
     const isSubmitted = submittedAthletes.has(selectedAthlete);
 
+    // Get current week info
+    const currentWeek = 7;
+    const weekFocus = 'Dependability & Loyalty';
+    const today = new Date();
+    const sessionDate = today.toLocaleDateString('en-US', { 
+      weekday: 'long', 
+      month: 'short', 
+      day: 'numeric' 
+    });
+
     return (
       <div className="min-h-screen bg-gray-50 flex">
         <Sidebar isHeadCoach={coachData?.role === 'headcoach'} />
@@ -128,6 +138,9 @@ const Feedback = () => {
               <CardHeader className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-t-lg">
                 <CardTitle className="text-2xl">Give Feedback: {athlete.name}</CardTitle>
                 <CardDescription className="text-orange-100">
+                  Week {currentWeek}: {weekFocus} • {sessionDate}
+                </CardDescription>
+                <CardDescription className="text-orange-100">
                   {athlete.age} years old • {athlete.grade} • {athlete.site || 'Your Site'}
                 </CardDescription>
               </CardHeader>
@@ -136,6 +149,7 @@ const Feedback = () => {
                   <div className="text-center py-8">
                     <Check className="w-16 h-16 text-green-500 mx-auto mb-4" />
                     <p className="text-xl font-semibold text-green-600">Feedback submitted!</p>
+                    <p className="text-gray-600 mt-2">Parents will see this after 24 hours</p>
                   </div>
                 ) : (
                   <div className="space-y-6">
@@ -165,6 +179,7 @@ const Feedback = () => {
 
                     <div className="border-t pt-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-3">Coach Comments</h3>
+                      <p className="text-sm text-gray-500 mb-2">These comments will be visible to parents after 24 hours</p>
                       <textarea
                         value={feedback.comments || ''}
                         onChange={(e) => handleCommentChange(selectedAthlete, e.target.value)}

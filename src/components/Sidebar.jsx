@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from './ui/button.jsx';
-import { LayoutDashboard, Users, Activity, FileText, MessageSquare, Crown } from 'lucide-react';
+import { LayoutDashboard, Users, Activity, FileText, MessageSquare, Crown, CheckCircle } from 'lucide-react';
 import { cn } from '../lib/utils.js';
 
 const Sidebar = ({ isHeadCoach }) => {
@@ -11,9 +11,9 @@ const Sidebar = ({ isHeadCoach }) => {
   const menuItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { path: '/workout', label: 'Workout', icon: Activity },
-    { path: '/feedback', label: 'Give Feedback', icon: MessageSquare },
     { path: '/roster', label: 'Roster', icon: Users },
-    { path: '/report', label: 'Report', icon: FileText },
+    { path: '/attendance', label: 'Attendance', icon: CheckCircle },
+    { path: '/feedback', label: 'Give Feedback', icon: MessageSquare },
   ];
 
   if (isHeadCoach) {

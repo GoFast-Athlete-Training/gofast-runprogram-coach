@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header.jsx';
 import Sidebar from '../components/Sidebar.jsx';
+import AttendanceTable from '../components/AttendanceTable.jsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card.jsx';
 import { Input } from '../components/ui/input.jsx';
-import { Users, Search } from 'lucide-react';
+import { Calendar, Search } from 'lucide-react';
 import { useHydrateCoach } from '../hooks/useHydrateCoach.js';
 
-const Roster = () => {
+const Attendance = () => {
   const navigate = useNavigate();
   const { coachData, roster, loading } = useHydrateCoach();
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,6 +40,15 @@ const Roster = () => {
     athlete.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Get current date for session
+  const today = new Date();
+  const sessionDate = today.toLocaleDateString('en-US', { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+
   return (
     <div className="min-h-screen bg-gray-50 flex">
       <Sidebar isHeadCoach={coachData?.role === 'headcoach'} />
@@ -50,10 +60,12 @@ const Roster = () => {
         />
         <main className="flex-1 p-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Athlete Roster</h1>
-            <p className="text-gray-600">
-              View all athletes in your program
-            </p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Attendance</h1>
+            <div className="flex items-center space-x-2 text-gray-600">
+              <Calendar className="w-5 h-5" />
+              <p>Mark attendance for this week's session</p>
+            </div>
+            <p className="text-sm text-gray-500 mt-2">{sessionDate}</p>
           </div>
 
           <Card className="mb-6">
@@ -77,23 +89,24 @@ const Roster = () => {
             </CardContent>
           </Card>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredRoster.map((athlete) => (
-              <Card key={athlete.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-lg">{athlete.name}</CardTitle>
-                  <CardDescription>
-                    {athlete.age} years old • {athlete.grade} • {athlete.site || 'Your Site'}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                {filteredRoster.length} Athlete{filteredRoster.length !== 1 ? 's' : ''}
+              </CardTitle>
+              <CardDescription>
+                Mark attendance for each athlete
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <AttendanceTable athletes={filteredRoster} />
+            </CardContent>
+          </Card>
         </main>
       </div>
     </div>
   );
 };
 
-export default Roster;
+export default Attendance;
 

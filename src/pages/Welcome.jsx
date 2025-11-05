@@ -14,9 +14,9 @@ const Welcome = () => {
           <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
             <img src="/logo.avif" alt="Boys Gotta Run" className="w-20 h-20" />
           </div>
-          <CardTitle className="text-4xl mb-4">Welcome</CardTitle>
+          <CardTitle className="text-4xl mb-4">Welcome Coach</CardTitle>
           <CardDescription className="text-lg">
-            See your coaching experience
+            Each coach will get a special login to make a unique profile. You can also set the onboarding flow with videos.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -25,7 +25,7 @@ const Welcome = () => {
             size="lg" 
             className="w-full"
           >
-            Go
+            Take a Look Inside
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </CardContent>

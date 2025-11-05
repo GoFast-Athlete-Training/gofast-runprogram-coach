@@ -11,8 +11,8 @@ const Welcome = () => {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 flex items-center justify-center px-4">
       <Card className="max-w-2xl w-full">
         <CardHeader className="text-center">
-          <div className="w-20 h-20 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mx-auto mb-6">
-            <Activity className="w-10 h-10" />
+          <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <img src="/logo.avif" alt="Boys Gotta Run" className="w-20 h-20" />
           </div>
           <CardTitle className="text-4xl mb-4">Welcome</CardTitle>
           <CardDescription className="text-lg">

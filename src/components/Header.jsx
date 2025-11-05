@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button.jsx';
-import { Activity, LogOut } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 
 const Header = ({ coachName, isHeadCoach, onLogout }) => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Header = ({ coachName, isHeadCoach, onLogout }) => {
     <header className="bg-white border-b border-gray-200">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
-          <Activity className="w-8 h-8 text-orange-500" />
+          <img src="/logo.avif" alt="Boys Gotta Run" className="w-8 h-8" />
           <span className="text-xl font-bold text-gray-900">Coach's Corner</span>
         </div>
         <div className="flex items-center space-x-4">
